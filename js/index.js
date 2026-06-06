@@ -21,7 +21,7 @@ const PUZZLES = [
             emoji: '💕',
             num: '2 of 7',
             title: 'Two hearts, one picture',
-            msg: 'Kani na time ba, basking kapoy pero happy kaayo ko, first hike nato and more hikes to come! I love you by!',
+            msg: 'Kani na time ba, basking kapoy pero happy kaayo ko, first hike nato pero excited ko sa atung more hikes! I love you by!',
         }
     },
     {
@@ -45,7 +45,7 @@ const PUZZLES = [
             emoji: '🦋',
             num: '4 of 7',
             title: '6 pieces, 6 reasons to love you',
-            msg: 'You\'re kind, caring, strong independent woman, pretty, loving but shy (cute), violent (makes you unique). I love you babe!',
+            msg: 'You\'re kind, caring, strong independent woman, pretty, loving but shy (cute), violent (makes you unique). I love you miss sungit!',
         }
     },
     {
@@ -57,7 +57,7 @@ const PUZZLES = [
             emoji: '🌙',
             num: '5 of 7',
             title: 'Five ⭐ beauty!',
-            msg: 'Five puzzles solved! Your eyes, forehead, cheeks, lips, nose makes you the most beautiful person I know. Bonus is you\'re also sexy and hot respectfully. I love you mommyyy!',
+            msg: 'Wowwww, five puzzles solved! Your eyes, forehead, cheeks, lips, and nose makes you the most beautiful person I know. Bonus is you\'re also sexy and hot respectfully. I love you mommyyy!',
         }
     },
     {
@@ -69,7 +69,7 @@ const PUZZLES = [
             emoji: '🌹',
             num: '6 of 7',
             title: 'One more to go…',
-            msg: 'Wow Nine tiles! Kagaling jd saako baby oy, last isa nalang, hehe goodluck. I love youuu my nurse!',
+            msg: 'Nasolve niya ang nine tiles oh! Kagaling jd saako baby oy, last isa nalang, hehe goodluck. I love youuu my nurse!',
         }
     },
     {

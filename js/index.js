@@ -9,7 +9,7 @@ const PUZZLES = [
             emoji: '🌸',
             num: '1 of 7',
             title: 'One step closer…',
-            msg: 'You did it! Every piece you place is like a memory being put back together. Keep going, there\'s more waiting for you.',
+            msg: 'Wowowowow, galinga ani niya oy. First round pato, I love you iah!',
         }
     },
     {
@@ -21,7 +21,7 @@ const PUZZLES = [
             emoji: '💕',
             num: '2 of 7',
             title: 'Two hearts, one picture',
-            msg: 'Look at you go! Two down and still smiling. You make everything look easy.',
+            msg: 'Kani na time ba, basking kapoy pero happy kaayo ko, first hike nato and more hikes to come! I love you by!',
         }
     },
     {
@@ -33,7 +33,7 @@ const PUZZLES = [
             emoji: '🌻',
             num: '3 of 7',
             title: 'Three is a charm ✨',
-            msg: 'Halfway through the easy ones! The way you figure things out reminds me of why I admire you so much.',
+            msg: 'Halfway through the easy ones! The way you figure things out reminds me of why I admire you so much. I love you my strong independent woman!',
         }
     },
     {

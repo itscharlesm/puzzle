@@ -1,0 +1,402 @@
+/* === RESET & BASE === */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --pink:    #f9a8d4;
+  --pink2:   #ec4899;
+  --rose:    #fda4af;
+  --lilac:   #c4b5fd;
+  --cream:   #fff7f0;
+  --gold:    #fbbf24;
+  --soft-bg: #fff0f5;
+  --card-bg: #fffaf8;
+  --text:    #5c2d4f;
+  --muted:   #9d6b8a;
+  --radius:  18px;
+  --shadow:  0 8px 32px rgba(180,60,120,0.13);
+}
+
+html, body {
+  width: 100%; height: 100%; min-height: 100vh;
+  font-family: 'Quicksand', sans-serif;
+  background: linear-gradient(135deg, #ffe4f0 0%, #f3e8ff 50%, #fce7f3 100%);
+  background-attachment: fixed;
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* === SCREENS === */
+.screen {
+  display: none;
+  position: fixed;
+  inset: 0;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.screen.active { display: flex; }
+
+/* === PETALS BG === */
+.petals-container {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+}
+.petal {
+  position: absolute;
+  top: -40px;
+  font-size: 20px;
+  animation: petalFall linear infinite;
+  opacity: 0.55;
+  user-select: none;
+}
+@keyframes petalFall {
+  0%   { transform: translateY(0) rotate(0deg) translateX(0); opacity: 0.6; }
+  50%  { transform: translateY(50vh) rotate(180deg) translateX(30px); }
+  100% { transform: translateY(110vh) rotate(360deg) translateX(-20px); opacity: 0; }
+}
+
+/* === START SCREEN === */
+.start-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  background: rgba(255,255,255,0.75);
+  border: 1.5px solid #f9a8d4;
+  border-radius: 28px;
+  padding: 3rem 3.5rem;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  animation: floatIn 0.8s ease;
+}
+@keyframes floatIn {
+  from { opacity: 0; transform: translateY(30px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.start-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(2rem, 5vw, 3rem);
+  color: var(--pink2);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 2px 8px rgba(236,72,153,0.15);
+}
+.start-subtitle {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.btn-start {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, #f9a8d4, #c4b5fd);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 0.75rem 2.8rem;
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(244,114,182,0.35);
+  transition: transform 0.2s, box-shadow 0.2s;
+  letter-spacing: 0.04em;
+}
+.btn-start:hover {
+  transform: scale(1.07) translateY(-2px);
+  box-shadow: 0 8px 28px rgba(244,114,182,0.45);
+}
+.btn-start:active { transform: scale(0.97); }
+
+/* === PUZZLE UI === */
+.puzzle-ui {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.puzzle-header {
+  display: flex; justify-content: space-between; align-items: center;
+  width: 100%; max-width: 520px;
+  padding: 0 0.5rem;
+}
+.puzzle-label {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.4rem;
+  color: var(--pink2);
+}
+.move-count {
+  font-size: 0.9rem;
+  color: var(--muted);
+  background: rgba(255,255,255,0.7);
+  padding: 4px 14px;
+  border-radius: 20px;
+  border: 1px solid #f9a8d4;
+}
+
+.puzzle-board {
+  display: grid;
+  gap: 4px;
+  background: rgba(255,255,255,0.75);
+  border: 2px solid #f9a8d4;
+  border-radius: var(--radius);
+  padding: 10px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(8px);
+  transition: box-shadow 0.3s;
+  touch-action: none;
+  user-select: none;
+}
+
+.puzzle-tile {
+  border-radius: 10px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+.puzzle-tile:hover {
+  transform: scale(1.04);
+  box-shadow: 0 4px 18px rgba(236,72,153,0.22);
+  border-color: #f9a8d4;
+  z-index: 2;
+}
+.puzzle-tile.empty {
+  background: rgba(249,168,212,0.18) !important;
+  cursor: default;
+  border: 2px dashed #f9a8d4;
+}
+.puzzle-tile.empty:hover { transform: none; box-shadow: none; border-color: #f9a8d4; }
+
+.puzzle-tile.correct {
+  animation: correctPop 0.35s ease;
+}
+@keyframes correctPop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.08); box-shadow: 0 0 16px rgba(236,72,153,0.5); }
+  100% { transform: scale(1); }
+}
+
+.puzzle-hint {
+  font-size: 0.85rem;
+  color: var(--muted);
+  font-style: italic;
+  min-height: 1.2em;
+}
+
+/* === COMPLETION CARD (puzzles 1-6) === */
+.card {
+  position: relative; z-index: 2;
+  background: var(--card-bg);
+  border: 1.5px solid #f9a8d4;
+  border-radius: 24px;
+  padding: 2.5rem 2.8rem;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 12px 40px rgba(180,60,120,0.18);
+  animation: cardPop 0.5s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes cardPop {
+  from { opacity: 0; transform: scale(0.7); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.card-emoji { font-size: 3rem; display: block; margin-bottom: 0.75rem; }
+.card-num {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  margin-bottom: 0.5rem;
+}
+.card-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.8rem;
+  color: var(--pink2);
+  margin-bottom: 0.8rem;
+}
+.card-msg {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+.card-divider {
+  width: 60px; height: 2px;
+  background: linear-gradient(90deg, #f9a8d4, #c4b5fd);
+  border-radius: 2px;
+  margin: 0 auto 1.5rem;
+}
+
+.btn-proceed {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.3rem;
+  background: linear-gradient(135deg, #f9a8d4, #c4b5fd);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 0.6rem 2.2rem;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(244,114,182,0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.btn-proceed:hover {
+  transform: scale(1.06) translateY(-2px);
+  box-shadow: 0 8px 24px rgba(244,114,182,0.4);
+}
+.btn-proceed:active { transform: scale(0.97); }
+
+/* === FINAL CARD (7th puzzle) === */
+#finalScreen { z-index: 5; }
+
+.final-card {
+  position: relative; z-index: 2;
+  background: linear-gradient(145deg, #fff0f8, #f8f0ff, #fff8f0);
+  border: none;
+  border-radius: 28px;
+  padding: 0.5rem;
+  max-width: 420px;
+  width: 92vw;
+  box-shadow:
+    0 0 0 3px #f9a8d4,
+    0 0 0 6px #c4b5fd,
+    0 0 0 9px #fda4af,
+    0 24px 60px rgba(180,60,120,0.25);
+  animation: finalBurst 0.8s cubic-bezier(0.34,1.56,0.64,1);
+  overflow: hidden;
+}
+@keyframes finalBurst {
+  from { opacity: 0; transform: scale(0.5) rotate(-5deg); }
+  to   { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
+.sparkle-ring {
+  position: absolute; inset: -4px;
+  border-radius: 32px;
+  background: linear-gradient(90deg, #f9a8d4, #c4b5fd, #fda4af, #fbbf24, #f9a8d4);
+  background-size: 300% 100%;
+  animation: shimmer 3s linear infinite;
+  z-index: -1;
+}
+@keyframes shimmer {
+  0%   { background-position: 0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+.final-inner {
+  background: linear-gradient(145deg, #fff5fb, #f5f0ff);
+  border-radius: 24px;
+  padding: 2.5rem 2.2rem 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.heart-burst {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 0.5rem;
+  animation: heartBeat 1.2s ease-in-out infinite;
+}
+@keyframes heartBeat {
+  0%, 100% { transform: scale(1); }
+  25%       { transform: scale(1.25); }
+  50%       { transform: scale(1.1); }
+  75%       { transform: scale(1.2); }
+}
+
+.final-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 2rem;
+  color: var(--pink2);
+  margin-bottom: 0.75rem;
+  text-shadow: 0 2px 12px rgba(236,72,153,0.2);
+}
+.final-msg {
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 1.2rem;
+}
+.ribbon {
+  width: 80px; height: 3px;
+  background: linear-gradient(90deg, #f9a8d4, #fbbf24, #c4b5fd);
+  border-radius: 3px;
+  margin: 0 auto 1rem;
+  animation: ribbonGrow 1s ease 0.8s both;
+}
+@keyframes ribbonGrow {
+  from { width: 0; opacity: 0; }
+  to   { width: 80px; opacity: 1; }
+}
+.stars-row {
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+  margin-bottom: 1.4rem;
+  animation: fadeInUp 0.6s ease 1s both;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.btn-final {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.5rem;
+  background: linear-gradient(135deg, #ec4899, #c084fc);
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 0.75rem 2.5rem;
+  cursor: pointer;
+  box-shadow:
+    0 4px 20px rgba(236,72,153,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+  animation: fadeInUp 0.6s ease 1.2s both;
+}
+.btn-final:hover {
+  transform: scale(1.08) translateY(-3px);
+  box-shadow: 0 10px 30px rgba(236,72,153,0.5);
+}
+
+.confetti-area {
+  position: absolute; inset: 0; pointer-events: none; overflow: hidden; border-radius: 28px;
+}
+.confetti-piece {
+  position: absolute;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  animation: confettiFall linear forwards;
+  opacity: 0.9;
+}
+@keyframes confettiFall {
+  0%   { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(420px) rotate(720deg); opacity: 0; }
+}
+
+/* === SOLVED OVERLAY === */
+.solved-overlay {
+  position: absolute; inset: 0;
+  background: rgba(255,240,248,0.85);
+  border-radius: var(--radius);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 0.5rem;
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.6rem;
+  color: var(--pink2);
+  backdrop-filter: blur(4px);
+  animation: overlayIn 0.4s ease;
+  z-index: 10;
+}
+@keyframes overlayIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 500px) {
+  .start-content { padding: 2rem 1.5rem; }
+  .card { padding: 2rem 1.5rem; }
+  .final-inner { padding: 2rem 1.2rem 1.5rem; }
+}

@@ -84,7 +84,7 @@ const PUZZLES = [
         final: true,
         card: {
             title: 'You\'ve unlocked my heart 💖',
-            msg: 'Every piece of this puzzle is a piece of how I feel about you. Thank you for playing, for smiling, and for being you. This was made with love — just for you. 🌸',
+            msg: 'Just like these puzzles, you\'re always my missing piece. You complete my life, and that\'s what you mean to me. I don\'t know how many moves you\'ve made, but I hope you will not give up on us, just like how you solved all the puzzles. No matter how many obstacles we may face, no matter how long it takes, no matter how many down days we\'ll have, days when we don\'t understand each other, days when we\'ll be apart, I hope you will keep trying because I will never give up on you. I love you, now and always, my Iah. May we continue to solve life\'s puzzle together, hand in hand, heart to heart. Happy 7th Monthsary! ♡',
         }
     },
 ];

@@ -1,64 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Puzzle</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="icon" type="image/png" href="css/images/logo.png">
+    <meta charset="UTF-8">
+    <title>Puzzle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Quicksand:wght@400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/png" href="css/images/logo.png">
 </head>
+
 <body>
 
-  <audio id="bgMusic" src="css/music/bg_music.mp3" loop></audio>
+    <audio id="bgMusic" src="css/music/bg_music.mp3" loop></audio>
 
-  <!-- Start Screen -->
-  <div id="startScreen" class="screen active">
-    <div class="start-content">
-      <h1 class="start-title">✨ A Little Puzzle For You ✨</h1>
-      <p class="start-subtitle">Seven pictures, seven pieces of my heart</p>
-      <button id="startBtn" class="btn-start">Start ♡</button>
+    <!-- Start Screen -->
+    <div id="startScreen" class="screen active">
+        <div class="start-content">
+            <h1 class="start-title">✨ A Little Puzzle For You ✨</h1>
+            <p class="start-subtitle">Seven pictures, seven pieces of my heart</p>
+            <button id="startBtn" class="btn-start">Start ♡</button>
+        </div>
+        <div class="petals-container" id="petals"></div>
     </div>
-    <div class="petals-container" id="petals"></div>
-  </div>
 
-  <!-- Puzzle Screen -->
-  <div id="puzzleScreen" class="screen">
-    <div class="puzzle-ui">
-      <div class="puzzle-header">
-        <span id="puzzleLabel" class="puzzle-label"></span>
-        <span id="moveCount" class="move-count">Moves: 0</span>
-      </div>
-      <div id="puzzleBoard" class="puzzle-board"></div>
-      <div class="puzzle-hint">
-        <span id="hintText"></span>
-      </div>
+    <!-- Puzzle Screen -->
+    <div id="puzzleScreen" class="screen">
+        <div class="puzzle-ui">
+            <div class="puzzle-header">
+                <span id="puzzleLabel" class="puzzle-label"></span>
+                <span id="moveCount" class="move-count">Moves: 0</span>
+            </div>
+            <div id="puzzleBoard" class="puzzle-board"></div>
+            <div class="puzzle-hint">
+                <span id="hintText"></span>
+            </div>
+        </div>
+        <div class="petals-container" id="petals2"></div>
     </div>
-    <div class="petals-container" id="petals2"></div>
-  </div>
 
-  <!-- Completion Card -->
-  <div id="cardScreen" class="screen">
-    <div id="completionCard" class="card"></div>
-    <div class="petals-container" id="petals3"></div>
-  </div>
-
-  <!-- Final Card (7th) -->
-  <div id="finalScreen" class="screen">
-    <div id="finalCard" class="final-card">
-      <div class="sparkle-ring"></div>
-      <div class="final-inner">
-        <div class="heart-burst">♡</div>
-        <h2 class="final-title"></h2>
-        <p class="final-msg"></p>
-        <div class="ribbon"></div>
-        <div class="stars-row">⭐ 🌸 💖 🌸 ⭐</div>
-      </div>
-      <div class="confetti-area" id="confettiArea"></div>
+    <!-- Completion Card -->
+    <div id="cardScreen" class="screen">
+        <div id="completionCard" class="card"></div>
+        <div class="petals-container" id="petals3"></div>
     </div>
-    <div class="petals-container" id="petals4"></div>
-  </div>
 
-  <script src="js/index.js"></script>
+    <!-- Final Card (7th) -->
+    <div id="finalScreen" class="screen">
+        <div id="finalCard" class="final-card">
+            <div class="sparkle-ring"></div>
+            <div class="final-inner">
+                <div class="heart-burst">♡</div>
+                <h2 class="final-title"></h2>
+                <p class="final-msg"></p>
+                <div class="ribbon"></div>
+                <div class="stars-row">⭐ 🌸 💖 🌸 ⭐</div>
+            </div>
+            <div class="confetti-area" id="confettiArea"></div>
+        </div>
+        <div class="petals-container" id="petals4"></div>
+    </div>
+
+    <script src="js/index.js"></script>
 </body>
+
 </html>

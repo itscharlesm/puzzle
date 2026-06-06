@@ -44,8 +44,8 @@ const PUZZLES = [
         card: {
             emoji: '🦋',
             num: '4 of 7',
-            title: 'Things are getting real',
-            msg: 'Six pieces and you handled it like a pro. I knew you could. I\'m proud of you.',
+            title: '6 pieces, 6 reasons to love you',
+            msg: 'You\'re kind, caring, strong independent woman, pretty, loving but shy (cute), violent (makes you unique). I love you babe!',
         }
     },
     {
@@ -56,8 +56,8 @@ const PUZZLES = [
         card: {
             emoji: '🌙',
             num: '5 of 7',
-            title: 'Five ⭐ performance!',
-            msg: 'Five puzzles solved! Your patience and care show in everything you do. Almost there, love.',
+            title: 'Five million ⭐ performance!',
+            msg: 'Five puzzles solved! Your eyes, forehead, cheeks, lips, nose makes you the most beautiful person I know. Bonus is you\'re also sexy and hot respectfully. I love you mommyyy!',
         }
     },
     {
@@ -69,18 +69,18 @@ const PUZZLES = [
             emoji: '🌹',
             num: '6 of 7',
             title: 'One more to go…',
-            msg: 'Nine tiles! You are incredible. One final puzzle remains — and it\'s the most special one. Ready?',
+            msg: 'Wow Nine tiles! Kagaling jd saako baby oy, last isa nalang, hehe goodluck. I love youuu my nurse!',
         }
     },
     {
         img: 'css/images/7.jpg',
         cols: 4, rows: 3,          /* 12 tiles */
         label: 'Puzzle Seven ✨',
-        hint: 'The last one — pour your heart into it 💖',
+        hint: 'The last one 💖',
         final: true,
         card: {
-            title: 'You\'ve unlocked my heart 💖',
-            msg: 'Just like these puzzles, you\'re always my missing piece. You complete my life, and that\'s what you mean to me. I don\'t know how many moves you\'ve made, but I hope you will not give up on us, just like how you solved all the puzzles. No matter how many obstacles we may face, no matter how long it takes, no matter how many down days we\'ll have, days when we don\'t understand each other, days when we\'ll be apart, I hope you will keep trying because I will never give up on you. I love you, now and always, my Iah. May we continue to solve life\'s puzzle together, hand in hand, heart to heart. Happy 7th Monthsary! I love you ♡',
+            title: 'You complete my life 💖',
+            msg: 'Just like these puzzles, you\'re always my missing piece. You complete my life, and that\'s what you mean to me. I don\'t know how many moves you\'ve made, but I hope you will not give up on us, just like how you solved all the puzzles. No matter how many obstacles we may face, no matter how long it takes, no matter how many down days we\'ll have, days when we don\'t understand each other, days when we\'ll be apart, I hope you will keep trying because I will never give up on you. I love you, now and always, my Iah. May we continue to solve life\'s puzzle together, hand in hand, heart to heart. Happy 7th Monthsary! More monthsaries to come! I loveeee youuuu my pretty baby nurse iah ♡',
         }
     },
 ];
